@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FFF1F5">
+<meta name="description" content="A playful friendship quiz for people who think they know me."><title>Friends Edition ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,700,20,1;9..144,800,20,1;9..144,900,20,1&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFF1F5;--ink:#1F2430;--muted:#615D68;--line:#E7D3DB;--orange:#E86B52;--peach:#F7CBD3;--blue:#9FD9E6;--yellow:#F3D58B;--lilac:#D5C8E6;--white:#FFF8FB}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--orange);outline-offset:4px}button:disabled{opacity:.48;cursor:not-allowed}
+::selection{background:var(--peach)}.wrap{max-width:1120px;margin:0 auto;padding:0 34px}.top{height:82px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.logo{font-weight:800;letter-spacing:-.075em;font-size:24px}.logo i{font-style:normal;color:var(--orange)}.edition{border:1px solid var(--ink);border-radius:99px;font-size:11px;font-weight:800;padding:9px 13px;letter-spacing:.08em;transform:rotate(4deg)}main{min-height:calc(100vh - 163px)}.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:25px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.foot button,.link{border:0;background:none;text-decoration:underline;text-underline-offset:4px;font-weight:700;color:var(--ink)}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8f5549}.serif{font-family:'Fraunces',Georgia,serif;letter-spacing:-.055em;font-weight:800}.hero{display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:6vw;min-height:660px}.hero h1{font-size:clamp(64px,8.5vw,118px);line-height:.93;margin:26px 0}.hero h1 em{font-style:normal;color:var(--orange)}.lead{max-width:460px;line-height:1.65;font-size:18px;color:#5b605e}.primary{color:var(--paper);background:var(--ink);border:2px solid var(--ink);border-radius:100px;padding:17px 25px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:15px;transition:transform .2s,box-shadow .2s}.primary:hover:not(:disabled){transform:translateY(-3px);box-shadow:5px 6px var(--orange)}.secondary{color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:100px;padding:14px 22px;font-weight:800}.minor{color:var(--muted);font-size:12px;margin-top:20px}.scene{position:relative;aspect-ratio:1/1.05;max-width:500px;display:flex;align-items:center;justify-content:center}.scene:before{content:'';position:absolute;inset:6% 4%;border-radius:48% 53% 46% 56%;background:var(--peach);transform:rotate(-10deg)}.scene:after{content:'';position:absolute;bottom:10%;left:7%;width:90%;height:13px;background:#e5bba9;border-radius:50%;filter:blur(11px)}.mascot{position:relative;isolation:isolate;width:min(75%,340px);overflow:visible;filter:drop-shadow(1px 7px 0 #b96d5d);animation:float 3.4s ease-in-out infinite}.mascot .body{fill:#fff7e8;stroke:var(--ink);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.mascot .blush{fill:#efb8ad}.mascot .feature{stroke:var(--ink);stroke-width:6;stroke-linecap:round;fill:none}.mascot .bow{fill:#d97b63;stroke:var(--ink);stroke-width:4}.mascot .arm{stroke:var(--ink);stroke-width:8;stroke-linecap:round}.mascot[data-mood="wrong"]{animation:shake .4s both}.mascot[data-mood="happy"]{animation:hop .5s both}.mascot[data-mood="thinking"]{transform:rotate(-8deg)}.spark{position:absolute;font-size:clamp(22px,4vw,41px);font-weight:800;color:#cf806b}.spark.one{top:8%;right:12%;transform:rotate(12deg)}.spark.two{bottom:13%;left:2%;transform:rotate(-22deg)}.sceneLabel{position:absolute;bottom:5%;right:3%;padding:10px 15px;background:var(--white);border:1.5px solid var(--ink);border-radius:12px;transform:rotate(-6deg);font-size:12px;font-weight:800;box-shadow:4px 4px var(--yellow)}@keyframes float{50%{translate:0 -8px}}@keyframes hop{50%{transform:translateY(-19px) rotate(8deg)}}@keyframes shake{25%{transform:translateX(-9px) rotate(-5deg)}75%{transform:translateX(8px) rotate(6deg)}}@keyframes in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.enter{animation:in .36s both}.quiz{max-width:850px;margin:0 auto;padding:65px 0 80px}.meter{display:flex;gap:16px;align-items:center;font-size:12px;font-weight:800;letter-spacing:.07em}.track{flex:1;background:#e6e0d4;height:7px;border-radius:99px;overflow:hidden}.track div{height:100%;background:var(--orange);border-radius:99px;transition:width .45s}.chapter{display:flex;justify-content:space-between;gap:30px;align-items:center}.chapterName{font-size:11px;font-weight:800;letter-spacing:.15em;color:#985b50;text-transform:uppercase}.qhead{font-family:'Fraunces',Georgia,serif;font-size:clamp(39px,6vw,68px);line-height:1.08;letter-spacing:-.05em;margin:22px 0 35px;max-width:780px}.qhead .dot{color:var(--orange)}.qarea{display:grid;grid-template-columns:1fr 180px;gap:32px;align-items:start}.answers{display:grid;gap:13px}.answer{width:100%;border:1.5px solid var(--ink);background:var(--white);padding:17px 19px;min-height:72px;display:flex;align-items:center;gap:18px;text-align:left;border-radius:16px;font-weight:700;line-height:1.3;transition:transform .15s,background .15s,box-shadow .15s}.answer:hover:not(:disabled){transform:translateX(6px);box-shadow:-5px 0 var(--blue)}.answer.selected{background:var(--peach);box-shadow:5px 5px 0 var(--ink)}.answer.good{background:#d5e8d5}.answer.bad{background:#f2c7ba}.answer .key{font-family:'Fraunces',serif;font-size:21px;color:#985b50;min-width:26px}.sidekick{position:sticky;top:20px;text-align:center}.sidekick .scene{width:170px}.sidekick .sceneLabel{font-size:10px}.sidekick p{color:var(--muted);font-size:12px}.actions{margin-top:26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}.feedback{border-left:4px solid var(--orange);background:#f7e6d4;padding:17px 20px;font-size:15px;font-weight:700;margin-top:24px;animation:in .24s both}.interlude{min-height:580px;display:grid;grid-template-columns:1fr 280px;gap:40px;align-items:center}.interlude h2{font-family:'Fraunces',serif;font-size:clamp(52px,8vw,90px);letter-spacing:-.055em;line-height:1.02;margin:20px 0}.interlude .scene{max-width:280px}.result{max-width:730px;margin:0 auto;padding:65px 0}.bigScore{font-family:'Fraunces',serif;font-size:clamp(100px,17vw,175px);font-weight:800;letter-spacing:-.1em;line-height:1}.bigScore small{font-size:.4em;color:var(--orange)}.paper{background:#fffdf5;padding:36px 42px;border:1.5px solid var(--ink);box-shadow:9px 9px 0 var(--peach);border-radius:8px 28px 8px 18px;margin:36px 0;line-height:1.8;position:relative}.paper:before{content:'✉';position:absolute;right:27px;top:16px;color:var(--orange);font-size:29px}.paper h3{margin-top:0;font-family:'Fraunces',serif;font-size:30px}.editor{max-width:800px;margin:50px auto 85px}.editCard{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;margin:18px 0}.editCard label{font-size:11px;letter-spacing:.07em;font-weight:800;display:block;margin:12px 0 5px}.field{width:100%;border:1.5px solid #b8b2a8;background:#fff;padding:12px;border-radius:10px}.editorTools{display:flex;gap:10px;flex-wrap:wrap}.toast{font-size:13px;color:#985b50;font-weight:700}.confetti{position:fixed;z-index:4;pointer-events:none;top:-20px;width:11px;height:18px;background:var(--orange);animation:fall 2.8s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(740deg);opacity:0}}@media(max-width:720px){.wrap{padding:0 20px}.top{height:69px}.logo{font-size:21px}.edition{font-size:9px}.hero{grid-template-columns:1fr;gap:0;padding:50px 0 40px;min-height:unset}.hero h1{font-size:clamp(62px,14vw,92px)}.hero .scene{max-width:330px;margin:15px auto 0;order:-1;max-height:260px}.hero .scene .mascot{max-height:215px}.lead{font-size:16px}.quiz{padding:32px 0 65px}.qarea{grid-template-columns:1fr}.sidekick{display:none}.chapter{display:block}.qhead{font-size:clamp(36px,9vw,53px);margin-bottom:26px}.answer{min-height:68px}.interlude{grid-template-columns:1fr;gap:0;padding:42px 0 60px}.interlude .scene{max-width:250px;order:-1;margin:auto}.result{padding-top:35px}.paper{padding:27px 26px}.foot{font-size:11px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Blush-paper question surfaces; richer sky accents, without neon or glass effects. */
+.qarea{background:#FFF8FB;border:1px solid #E9CFD9;border-radius:24px;padding:22px;}
+.qhead{color:#2C2A30;}
+.chapterName{display:inline-flex;padding:8px 12px;border-radius:99px;background:#FCE3EA;color:#8A4F5F;}
+.answer{background:#FFF7FA;border-color:#D6AEBE;}
+.answer:hover:not(:disabled){background:#FDEEF3;box-shadow:-5px 0 var(--blue);}
+.answer.selected{background:#F8DCE4;border-color:#D97B63;}
+.paper{background:#FFF8FB;border-color:#D6AEBE;}
+.scene:before{background:var(--peach)}
+@media(max-width:720px){.qarea{padding:15px;border-radius:18px}}
+
+/* Editorial refresh: punchier ink/coral, intentional typography and layout. */
+.serif,.qhead,.interlude h2,.bigScore{font-family:'Fraunces',Georgia,serif;font-weight:900;letter-spacing:-.065em}
+.hero h1{font-size:clamp(67px,9.3vw,126px);line-height:.92;letter-spacing:-.07em}
+.hero h1 em,.logo i{color:var(--orange)}
+.hero{gap:clamp(30px,5vw,78px);padding:48px 0 60px}
+.lead{color:#4B5260;font-size:clamp(17px,1.8vw,21px);line-height:1.68}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.065em}
+.eyebrow{color:#9A514C;letter-spacing:.17em}
+.edition{background:#FFF8FB;border:1.5px solid var(--ink)}
+.primary{background:var(--ink);box-shadow:0 6px 0 #E8C4CB;letter-spacing:-.025em}
+.primary:hover:not(:disabled){box-shadow:0 9px 0 #E8C4CB}
+.scene:before{background:#F5C4D6}
+.answer{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px}
+.answer.selected{background:#FAD4E1;border-color:var(--orange)}
+.qhead{font-size:clamp(42px,5.8vw,69px)}
+@media(max-width:720px){.hero{padding:35px 0 40px}.hero h1{font-size:clamp(60px,13vw,95px)}}
+
+/* Interaction layer: purposeful tactile feedback, no decorative perpetual motion. */
+:root{--tap-ease:cubic-bezier(.2,.8,.2,1);--exit-ease:cubic-bezier(.4,0,1,1)}
+.answer--interactive{position:relative;overflow:hidden;transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms var(--tap-ease),transform 180ms var(--tap-ease)}
+.answer--interactive:active{transform:scale(.985)}
+.answer--interactive.selected{transform:translateX(5px) rotate(-.4deg);box-shadow:5px 5px 0 var(--ink)}
+.answerMark{margin-left:auto;font-size:22px;opacity:.27;transform:rotate(-35deg);transition:transform 200ms var(--tap-ease),opacity 200ms var(--tap-ease)}
+.answer--interactive.selected .answerMark{transform:rotate(0);opacity:1}
+.decisionRow{display:flex;align-items:center;justify-content:space-between;gap:17px;margin-top:24px;flex-wrap:wrap}
+.decisionRow .primary{margin:0}
+.decisionNote{font-size:13px;line-height:1.5;font-weight:700;color:#805b69;max-width:250px}
+.primary.ready{background:#d85071;color:#fff}
+.primary:active:not(:disabled){transform:translateY(1px) scale(.97);box-shadow:0 2px 0 #e8c4cb}
+#questionScreen.leaving{animation:quizExit 240ms var(--exit-ease) both;pointer-events:none}
+@keyframes quizExit{to{opacity:0;transform:translateY(-13px) scale(.985)}}
+.mascotPeek{animation:mascotPeek 340ms var(--tap-ease) both!important}
+@keyframes mascotPeek{50%{transform:translateY(-12px) rotate(7deg)}}
+.chapterName{transition:transform .25s var(--tap-ease)}
+.quiz.enter .chapterName{animation:chapterTag 450ms var(--tap-ease) both}
+@keyframes chapterTag{from{transform:rotate(-5deg) translateY(-7px);opacity:0}to{transform:rotate(0);opacity:1}}
+.quiz.enter .answer--interactive{animation:answerRise 320ms var(--tap-ease) both}
+.quiz.enter .answer--interactive:nth-child(2){animation-delay:65ms}
+@keyframes answerRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:720px){.decisionRow{align-items:stretch}.decisionRow .primary{width:100%}.decisionNote{max-width:none}}
+@media(prefers-reduced-motion:reduce){.answer--interactive,.answerMark,.primary,.chapterName{transition:none!important}#questionScreen.leaving,.mascotPeek,.quiz.enter .answer--interactive,.quiz.enter .chapterName{animation:none!important}}
+
+.sceneCard{display:flex;gap:17px;align-items:center;background:#fff8fb;border:1.5px solid #e0c4cf;border-radius:21px;padding:14px 17px;max-width:530px;margin:22px 0;box-shadow:4px 5px 0 #f6d5e0;animation:in .32s both}
+.sceneCard .reactionImage{width:110px;height:110px;flex:0 0 110px;object-fit:contain;border-radius:16px}
+.sceneCopy{display:grid;gap:8px}.sceneCopy strong{font-weight:800;font-size:clamp(17px,2.4vw,24px);line-height:1.26}.sceneCopy small{font-size:13px;color:#765c66;line-height:1.5}
+.resultReaction{max-width:100%;margin:27px 0}.resultReaction .reactionImage{width:160px;height:160px;flex-basis:160px}
+.interlude{position:relative}.interlude .sceneCard{grid-column:1/-1;max-width:570px;margin-top:-20px}
+@media(max-width:580px){.sceneCard{gap:12px}.sceneCard .reactionImage{width:90px;height:90px;flex-basis:90px}.resultReaction .reactionImage{width:120px;height:120px;flex-basis:120px}}
+@media(prefers-reduced-motion:reduce){.sceneCard{animation:none!important}}
+:root{--paper:#f4f2f5;--ink:#181725;--orange:#9475b5;--peach:#eae1f1;--blue:#c8c7e9;--yellow:#ebdff0;--lilac:#c9baed;--white:#fff;--line:#e5dfe8}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--paper)}.wrap{max-width:1250px}
+.hero{grid-template-columns:1fr 1fr;gap:6%;min-height:690px;padding:55px 0 75px}.hero h1{font-size:clamp(65px,8vw,112px);line-height:.99}.hero h1 em,.logo i{color:#9475b5}.hero .lead{color:#6c6477}.eyebrow{color:#786388}
+.heroArt{height:520px;display:grid;place-items:center;position:relative;isolation:isolate;border-radius:32px;background:linear-gradient(135deg,#e3daec,#eee2ed 60%,#cec5e2);overflow:hidden;box-shadow:0 20px 40px #2a203314}
+.heroArt:before{content:'';width:100%;aspect-ratio:1;position:absolute;right:-25%;top:-50%;border:2px solid #ffffffa6;border-radius:50%;box-shadow:0 0 0 55px #ffffff23,0 0 0 110px #ffffff16}
+.heroArt>.reactionImage{object-fit:contain;position:relative;width:68%;height:68%;filter:drop-shadow(0 15px 19px #42345136);transform:rotate(-3deg);transition:transform .35s ease}.heroArt:hover>.reactionImage{transform:rotate(1deg) translateY(-10px) scale(1.04)}
+.heroCaption{position:absolute;bottom:20px;left:20px;right:20px;background:#fffffff0;border-radius:20px;padding:21px;display:grid;gap:6px;z-index:1;box-shadow:0 10px 30px #2420361a}.heroCaption span{font-size:10px;font-weight:800;letter-spacing:.17em;color:#806b94}.heroCaption strong{font-size:clamp(20px,2vw,28px);letter-spacing:-.035em}.heroCaption small{font-size:13px;color:#756a7c}
+.primary{border-radius:15px;box-shadow:none}.primary:hover:not(:disabled){box-shadow:0 9px 22px #32274729}.primary.ready{background:#785e9c}
+.quiz{max-width:940px;padding:75px 0}.qarea{background:transparent;border:0;padding:0;grid-template-columns:1fr 190px;gap:24px}.qhead{font-size:clamp(40px,5.6vw,68px)}.chapterName{background:#ece4f2;color:#756087}.track div{background:#a28abb}
+.answer{border-color:#e0d9e6;background:white;border-radius:19px;min-height:90px;padding:21px;box-shadow:0 6px 19px #2d20360b}.answer:hover:not(:disabled){background:white;transform:translateY(-3px);box-shadow:0 11px 26px #2d203622;border-color:#977ebe}.answer.selected,.answer--interactive.selected{background:#eee6f5;border-color:#977ebe;box-shadow:0 0 0 3px #a68acf37;transform:translateY(-1px)}.answer .key{border-radius:10px;background:#f6f3f8;padding:8px;min-width:43px;text-align:center}.answerMark{color:#9b83ba}
+.sidekick{background:#ebe5f1;border-radius:25px;padding:15px}.sidekick .scene{width:145px}.sidekick .scene:before{background:#dcd1e8}.decisionNote{color:#82778b}
+.resultReaction{max-width:100%;border:0;border-radius:26px;background:#eae1ef;box-shadow:none;padding:25px}.resultReaction .reactionImage{width:190px;height:180px;flex-basis:190px}.resultReaction .sceneCopy strong{font-size:clamp(23px,3vw,34px)}
+.paper{background:#fff;border:1px solid #e0d9e4;border-radius:24px;box-shadow:0 10px 30px #23172809}.sceneCard{background:#eae3f0;border:0;box-shadow:none}
+@media(max-width:720px){.hero{grid-template-columns:1fr;gap:23px;min-height:0;padding:35px 0 60px}.heroArt{order:-1;height:325px;border-radius:26px}.heroArt>.reactionImage{height:70%}.heroCaption{padding:13px 16px;left:13px;right:13px;bottom:13px}.heroCaption strong{font-size:20px}.hero h1{font-size:clamp(62px,13vw,90px)}.hero .primary{width:100%}.qarea{grid-template-columns:1fr;padding:0}.quiz{padding:35px 0 60px}.answer{min-height:78px}.sidekick{display:none}.resultReaction{padding:13px}.resultReaction .reactionImage{width:115px;height:118px;flex-basis:115px}.resultReaction .sceneCopy strong{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.heroArt>.reactionImage{transition:none!important}}
+/* Context repair: readable questions, original artwork only, immediate outcome feedback */
+.qhead{font-family:'Plus Jakarta Sans',sans-serif!important;font-size:clamp(27px,3.6vw,45px)!important;font-weight:800!important;line-height:1.27!important;letter-spacing:-.045em!important;max-width:890px;overflow-wrap:break-word;margin:26px 0 32px!important}
+.interlude .scene,.sceneLabel,.mascot{display:none!important}.sidekick{background:#ece7f2;padding:22px 15px;border-radius:24px}.sidekick>.reactionImage{display:block;width:100%;height:160px;object-fit:contain;border-radius:16px}.sidekick p{font-size:13px;font-weight:700;color:#746685}
+.answerFeedback{margin-top:29px;border-radius:25px;border:1px solid #ded7e8;background:#fff;box-shadow:0 14px 31px #2b234510;padding:22px;display:flex;align-items:center;gap:25px;animation:in .28s both}.answerFeedback>.reactionImage{width:155px;height:155px;object-fit:contain;flex:0 0 155px;border-radius:18px}.answerFeedback>div{display:grid;gap:10px;justify-items:start}.feedbackTag{font:800 11px 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;color:#866da5}.feedbackWrong .feedbackTag{color:#bd6185}.answerFeedback strong{font-size:clamp(20px,2.4vw,29px);font-weight:800;line-height:1.25;letter-spacing:-.035em}.answerFeedback small{font-size:14px;color:#746d7e;line-height:1.5}.answerFeedback .primary{margin-top:6px;padding:13px 20px}
+.midBreak{text-align:center;min-height:600px;padding:58px 0 90px;display:flex;align-items:center;justify-content:center;flex-direction:column}.midBreak>.reactionImage{width:min(290px,80vw);max-height:290px;object-fit:contain;margin:27px 0 12px}.midBreak h2{font-size:clamp(34px,5vw,57px);font-weight:800;letter-spacing:-.05em;line-height:1.1;margin:16px auto 8px}.midBreak p{color:#736b80;margin:5px 0 25px}
+@media(max-width:720px){.qhead{font-size:clamp(25px,6.7vw,36px)!important}.answerFeedback{gap:13px;padding:14px}.answerFeedback>.reactionImage{width:100px;height:115px;flex-basis:100px}.answerFeedback strong{font-size:19px}.answerFeedback small{font-size:12px}.answerFeedback .primary{padding:12px 16px}.sidekick{display:none}}
+
+/* Friends name entry + public leaderboard */
+.namePanel{max-width:420px;margin:24px 0 18px;padding:23px;background:#fff;border:1px solid #efd4df;border-radius:28px;box-shadow:0 13px 30px #9e77951c;position:relative}
+.nameHeart{text-align:center;font-size:30px}.namePanel label{display:block;text-align:center;font-size:clamp(25px,3vw,34px);font-weight:800;margin:3px 0 15px;color:#25223d}
+.namePanel label em{font-style:normal;color:#ef558f}.nameInputWrap{position:relative}
+.nameInputWrap .field{width:100%;box-sizing:border-box;padding-right:65px;border:2px solid #9bc8ff;border-radius:18px;background:#fff}
+#nameLen{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#636b83;font-size:12px}
+.namePanel .primary{width:100%;margin-top:13px;background:#1299f5;border-radius:18px}.namePanel .primary:disabled{opacity:.45}
+.namePanel .minor{text-align:center;font-size:12px;margin:13px 0 0}
+.boardPanel{margin:32px auto 10px;padding:26px;max-width:730px;border-radius:26px;background:linear-gradient(150deg,#e0f1ff,#f8faff);border:1px solid #c9dff8}
+.scoreboardHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.scoreboardHead h3{font-size:clamp(25px,4vw,36px);margin:0;color:#222540;letter-spacing:-.04em}
+.scoreboardHead span{font-size:12px;background:white;border-radius:12px;padding:9px;color:#515b79}
+.scoreRow{display:grid;grid-template-columns:45px minmax(70px,1fr) minmax(85px,2fr) auto;gap:12px;align-items:center;background:white;border-radius:20px;padding:15px 17px;margin-top:11px;box-shadow:0 4px 0 #d5e0eb}
+.scoreMedal{font-size:22px}.scoreName{font-weight:800;overflow-wrap:anywhere}
+.scoreBar{height:12px;background:#ffe0eb;border-radius:12px;overflow:hidden}.scoreBar>span{display:block;height:100%;background:#fa4f90;border-radius:12px}
+.scoreRow>strong{color:#f04587;font-size:20px;white-space:nowrap}.scoreRow>strong small{font-size:13px;color:#292e46}
+#scoreSaveStatus{font-size:14px;color:#626178;margin:12px 0}
+@media(max-width:540px){.scoreRow{grid-template-columns:32px 1fr auto;gap:8px;padding:12px}.scoreBar{grid-column:2/4;grid-row:2}.boardPanel{padding:14px}.namePanel{padding:18px}}
+
+/* Results experience v2 */
+.result{max-width:1000px;padding:43px 0 90px}
+.resultsHero{background:linear-gradient(135deg,#fff7fb,#e8ecff 60%,#e8f5ff);border:1px solid #dfd4ed;border-radius:34px;padding:clamp(22px,5vw,42px);position:relative;overflow:hidden}
+.resultsHero:before{content:'✦  ♡  ✧';position:absolute;top:17px;right:25px;color:#e49abd;font-size:24px;letter-spacing:17px;opacity:.8}
+.resultGreeting{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#9074a2}
+.resultsHeroGrid{display:grid;grid-template-columns:minmax(0,1fr) 220px;align-items:center;gap:22px}
+.resultsHero h1{font-family:Fraunces,serif;font-size:clamp(39px,6vw,66px);letter-spacing:-.055em;line-height:1.02;margin:15px 0 12px}
+.resultsHero p{color:#655f75;line-height:1.6}
+.resultCount{font-size:clamp(57px,8vw,95px);font-weight:800;line-height:1;color:#211d39;letter-spacing:-.08em}
+.resultCount span{font-size:.35em;color:#9673be;letter-spacing:0}
+.scoreDonut{--pct:0;display:grid;place-items:center;width:196px;aspect-ratio:1;border-radius:50%;background:conic-gradient(#fa69aa calc(var(--pct)*1%),#e7daef 0);margin:auto;box-shadow:0 12px 25px #a38cab30}
+.scoreDonutInner{display:grid;place-items:center;align-content:center;gap:1px;background:#fff;width:151px;aspect-ratio:1;border-radius:50%;font-weight:800;color:#29223d}
+.scoreDonutInner strong{font-size:35px}.scoreDonutInner small{color:#80738c;font-size:12px}
+.resultMini{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}
+.resultMini span{background:#fff;border-radius:12px;padding:9px 13px;font-size:13px;font-weight:800;color:#655571}
+.resultStage{display:grid;grid-template-columns:155px 1fr;align-items:center;gap:25px;padding:22px;background:#f3e9f6;border-radius:25px;margin:22px 0}
+.resultStage img{width:150px;height:150px;object-fit:contain}.resultStage h3{font-family:Fraunces,serif;font-size:clamp(23px,3vw,31px);line-height:1.15;margin:6px 0}
+.resultStage p{color:#6f6378;margin:4px 0}
+.resultPanel{border:1px solid #e5dbe9;border-radius:24px;background:white;padding:clamp(18px,4vw,30px);margin:20px 0}
+.resultPanel h3{font-family:Fraunces,serif;font-size:clamp(25px,4vw,35px);margin:0 0 9px}
+.reviewActions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.reviewFilter{border:1px solid #dacee6;background:#f8f3fb;border-radius:30px;padding:10px 17px;cursor:pointer;font-weight:800;color:#675b79}
+.reviewFilter.active{background:#352843;color:white}
+.reviewCard{border:1px solid #efe8f2;border-radius:16px;padding:17px;margin:10px 0;background:#fefcff}
+.reviewCard.isWrong{border-left:4px solid #f48a9c}.reviewCard.isCorrect{border-left:4px solid #86c6a9}
+.reviewCard .reviewStatus{font-size:11px;font-weight:800;letter-spacing:.08em;color:#907b9a}
+.reviewCard h4{font-size:16px;line-height:1.4;margin:8px 0 12px}
+.reviewCard p{font-size:13px;color:#635d6c;margin:5px 0}.reviewCard strong{color:#29233b}
+.resultLetter{border:1px solid #edcbd8;border-radius:20px;background:#fff7fb;padding:20px 24px;margin:20px 0}
+.resultLetter summary{cursor:pointer;font-family:Fraunces,serif;font-weight:800;font-size:23px;list-style:none}
+.resultLetter summary::-webkit-details-marker{display:none}.resultLetter summary:after{content:' ＋';float:right}.resultLetter[open] summary:after{content:' −'}
+.resultLetter p{line-height:1.8}
+.resultNav{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.resultNav button{min-height:50px}
+@media(max-width:620px){.resultsHeroGrid{grid-template-columns:1fr}.scoreDonut{width:160px}.scoreDonutInner{width:123px}.resultsHeroGrid>div:nth-child(2){grid-row:1}.resultStage{grid-template-columns:95px 1fr;gap:12px}.resultStage img{width:95px;height:95px}.resultMini span{font-size:12px}.reviewFilter{padding:9px 12px}}
+
+/* Results hero polish — cinematic editorial finish */
+.resultsHero{isolation:isolate;padding:clamp(26px,5vw,54px);background:radial-gradient(circle at 90% 15%,#ffe3ef 0,transparent 36%),radial-gradient(circle at 8% 90%,#dbeaff 0,transparent 42%),linear-gradient(135deg,#fffafc,#f0eaff 65%,#f6f0ff);box-shadow:0 20px 52px #6c49721a;min-height:350px}
+.resultsHero:before{content:'✦  ♡  ✧';right:16px;top:16px;color:#ed98ba;font-size:24px;opacity:.65}
+.resultGreeting{display:inline-flex;align-items:center;gap:9px;background:white;border:1px solid #f0d2e3;border-radius:99px;padding:9px 14px;font-size:10px;color:#8b6086;letter-spacing:.14em;box-shadow:0 6px 15px #9b6c8212}
+.resultsHero h1{font-family:'Fraunces',serif;font-size:clamp(39px,5.8vw,70px);font-weight:900;line-height:1.05;letter-spacing:-.062em;max-width:620px;text-wrap:balance;color:#231c37;margin:20px 0}
+.resultsHero h1 em{font-style:italic;color:#9866bd;background:linear-gradient(125deg,#9258c0,#ec78a9);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.resultsHero .resultCount{font-family:'Fraunces',serif;font-size:clamp(67px,9vw,112px);letter-spacing:-.075em;margin:12px 0 6px}
+.resultScoreCaption{display:inline-block;font-weight:800;font-size:12px;color:#95638e;letter-spacing:.12em;text-transform:uppercase}
+.resultsHero .resultTagline{font-size:clamp(14px,1.7vw,17px);max-width:475px;color:#645976;line-height:1.7;margin:15px 0}
+.resultsHeroGrid{grid-template-columns:minmax(0,1fr) 230px;gap:clamp(18px,4vw,44px)}
+.resultsHero .scoreDonut{width:215px;background:conic-gradient(#f666a5 calc(var(--pct)*1%),#e6d7ee 0);box-shadow:0 16px 35px #ac6d9e26;transform:rotate(-90deg)}
+.resultsHero .scoreDonutInner{transform:rotate(90deg);width:161px;box-shadow:inset 0 1px 5px #cfc1d33d}
+.resultsHero .scoreDonutInner strong{font-family:'Fraunces',serif;font-size:42px;color:#7e4fa6}
+.resultsHero .scoreDonutInner small{font-size:11px}
+.resultMini{margin-top:21px;gap:8px}
+.resultMini span{border:1px solid #f2dfea;box-shadow:0 5px 12px #8d678510;color:#514968}
+.resultRibbon{display:flex;align-items:center;gap:10px;margin-top:23px;padding-top:17px;border-top:1px solid #e7d5ec;color:#906b99;font-size:12px;font-weight:800;letter-spacing:.035em}
+.resultRibbon .resultRibbonIcon{font-size:21px}
+.resultStage{background:linear-gradient(135deg,#faedf6,#eee9fb);border:1px solid #e9d9ed;box-shadow:0 9px 22px #76618513}
+.resultStage img{filter:drop-shadow(0 8px 7px #92778c20)}
+.resultsDivider{display:flex;gap:15px;align-items:center;margin:27px 0 4px;font-size:11px;color:#9982a0;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.resultsDivider:before,.resultsDivider:after{content:'';height:1px;background:#e3d4e8;flex:1}
+@media(max-width:620px){.resultsHero{min-height:0;padding:24px 21px}.resultsHeroGrid{grid-template-columns:1fr}.resultsHeroGrid>div:nth-child(2){grid-row:auto}.resultsHero .scoreDonut{width:160px}.resultsHero .scoreDonutInner{width:121px}.resultsHero .scoreDonutInner strong{font-size:31px}.resultsHero h1{font-size:clamp(37px,10vw,53px)}.resultRibbon{line-height:1.6}}
+
+/* V2: clear information hierarchy, intentional spoiler reveal */
+.result{max-width:1000px}
+.resultsHero{border-radius:32px;box-shadow:0 16px 44px #73618014}
+.resultsHeroGrid{grid-template-columns:minmax(0,1fr) minmax(185px,230px)}
+.resultsHero h1{font-size:clamp(42px,5.5vw,67px);line-height:1.13;letter-spacing:-.045em;max-width:650px}
+.resultsHero h1 em{background:none;-webkit-text-fill-color:#8b5db0;color:#8b5db0;font-style:normal}
+.resultStage{margin-top:17px;box-shadow:0 10px 28px #795e8514}
+.resultLetter{background:linear-gradient(120deg,#fff9fc,#f5edf9);padding:27px 30px;box-shadow:0 8px 20px #94708a13}
+.resultLetter summary{font-size:clamp(23px,3.5vw,31px)}
+.resultPanel{box-shadow:0 11px 30px #826d9412;padding:clamp(20px,4vw,35px)}
+.answerVaultIntro{display:flex;align-items:center;gap:17px}
+.answerVaultIntro h3{margin-bottom:4px}
+.vaultIcon{font-size:30px;border-radius:15px;background:#f7e5f2;padding:14px}
+.vaultReveal{margin-top:20px;display:flex;align-items:center;justify-content:space-between;width:100%;padding:17px 22px;border:0;border-radius:17px;background:#302544;color:white;cursor:pointer;font-weight:800;font-size:16px;transition:transform .2s,box-shadow .2s}
+.vaultReveal:hover{transform:translateY(-2px);box-shadow:0 8px 20px #42345433}
+#answerVault{border-top:1px solid #e6dceb;margin-top:24px;padding-top:19px}
+#answerVault[hidden]{display:none!important}
+.resultNav{gap:12px}.resultNav .primary{box-shadow:0 8px 17px #8869971a}
+@media(max-width:620px){.resultsHeroGrid{grid-template-columns:1fr}.answerVaultIntro{align-items:start}.vaultIcon{font-size:24px;padding:11px}}
+
+/* v3 editorial results experience */
+.result{max-width:980px;padding:30px 0 100px}
+.v3Hero{position:relative;overflow:hidden;border-radius:30px;background:linear-gradient(125deg,#fffafc 0%,#f5eefc 57%,#e9f2ff 100%);border:1px solid #e8d9eb;box-shadow:0 18px 45px #5d46721c;padding:clamp(28px,5vw,56px)}
+.v3Hero:after{content:'';position:absolute;width:190px;height:190px;border:1.5px dashed #cdb8d7;border-radius:50%;right:-110px;bottom:-110px;pointer-events:none}
+.v3Star{position:absolute;pointer-events:none;color:#d7a2c6}.v3StarOne{right:26px;top:23px;font-size:35px}.v3StarTwo{left:46%;bottom:20px;font-size:34px;transform:rotate(-15deg)}
+.v3Hero h1{font-size:clamp(40px,5.7vw,73px);max-width:650px;line-height:1.13;letter-spacing:-.048em}.v3Hero h1 em{font-style:normal;color:#8c5caa;background:none;-webkit-text-fill-color:#8c5caa}
+.v3Hero .resultGreeting{background:#fff9ff;color:#73577b}
+.v3Count{font-size:clamp(85px,11vw,138px);margin-top:4px;line-height:1}.v3Hero .resultScoreCaption{margin-top:12px;display:inline-block}
+.v3Ribbon{max-width:470px}.v3ChapterDivider{display:flex;align-items:center;gap:12px;margin:33px 0 13px;font-size:11px;letter-spacing:.17em;font-weight:800;color:#826991}.v3ChapterDivider span{display:grid;place-items:center;border:1px solid #e1c9e2;border-radius:10px;width:33px;height:33px;color:#915b99;background:#fff8fc}
+.resultStage{margin:0 0 8px;background:#fcf7fd;border:1px solid #e8dce9;border-radius:23px}.resultStage h3{line-height:1.25}.resultStage img{border-radius:14px}
+.v3Letter{margin:0;border-radius:22px;background:#fffafa;border:1px solid #ead9e6}.v3Letter summary{min-height:40px}
+.v3EndLabel{margin:55px 0 14px;text-align:center;color:#a07ca8;font-size:11px;font-weight:800;letter-spacing:.2em}
+.v3Secret{position:relative;max-width:760px;margin:0 auto;padding:clamp(24px,5vw,42px);background:linear-gradient(135deg,#fdf8fb,#f4ecf8);border:1px solid #ead6e7;border-radius:26px;box-shadow:0 15px 32px #6a4f8018;text-align:center}
+.v3Seal{display:grid;place-items:center;margin:0 auto 16px;background:#ffe2ed;border:2px dashed #e7b5cc;width:64px;height:64px;border-radius:18px;color:#af6585;font-size:33px;transform:rotate(-5deg)}
+.v3Kicker{font-size:10px;letter-spacing:.2em;color:#9f7f9f;font-weight:800}.v3Secret h3{font-family:Fraunces,serif;font-size:clamp(28px,4vw,43px);letter-spacing:-.04em;line-height:1.15;margin:12px auto}.v3Secret p{color:#655b6d;line-height:1.65;max-width:480px;margin:0 auto 20px}
+.v3Secret .vaultReveal{max-width:390px;margin:20px auto 0;justify-content:center;gap:26px;background:#30263b}
+.v3Secret #answerVault{text-align:left;margin-top:26px}.v3Secret .reviewActions{justify-content:center}
+#answerVault[hidden]{display:none!important}.reviewCard[hidden]{display:none!important}
+.v3Hero .scoreDonut{box-shadow:0 12px 30px #9c759428}
+@media(max-width:620px){.v3Hero{padding:25px 20px}.v3Hero h1{font-size:clamp(37px,10vw,51px)}.v3Count{font-size:94px}.v3Secret{padding:25px 17px}.v3StarOne{font-size:23px}.resultStage{grid-template-columns:84px 1fr}.resultStage img{width:84px;height:84px}}
+@media(prefers-reduced-motion:reduce){.v3Secret .vaultReveal{transition:none}}
+
+/* V3 Cohesive results system: one grid, one rhythm, one design language */
+.result{--result-width:850px;max-width:var(--result-width);margin:0 auto;padding:30px 0 78px}
+.result .v3Hero,.result .boardPanel,.result .resultStage,.result .v3Secret{width:100%;max-width:none;box-sizing:border-box;margin-left:0;margin-right:0}
+.result .v3Hero{border-radius:27px;box-shadow:0 11px 31px #6d5b7715}
+.result .v3ChapterDivider{margin:25px 0 10px;padding:0 5px;font-size:11px;color:#806b90}
+.result .v3ChapterDivider span{width:27px;height:27px;border-radius:9px;background:#faf2fc}
+.result #scoreSaveStatus{font-size:12px;padding-left:6px;margin:0 0 8px;color:#887c90}
+.result .boardPanel{border-radius:23px;margin-top:0;margin-bottom:0;padding:25px 28px;background:linear-gradient(120deg,#f4effb,#edf3fc);border:1px solid #e4d7eb;box-shadow:0 11px 27px #77658512}
+.result .boardPanel .scoreboardHead h3{font-size:clamp(24px,3vw,31px);letter-spacing:-.035em}
+.result .boardPanel .scoreboardHead{margin-bottom:15px}
+.result .boardPanel .scoreRow{border:1px solid #ebe1ee;box-shadow:none;padding:13px 16px}
+.result .resultStage{grid-template-columns:135px minmax(0,1fr);gap:25px;border-radius:23px;margin:0;padding:23px 26px;background:linear-gradient(120deg,#fff8fd,#f6effb);box-shadow:0 11px 27px #77658512}
+.result .resultStage img{width:130px;height:130px;object-fit:contain}
+.result .resultStage h3{font-size:clamp(23px,3vw,30px);margin:3px 0 7px}
+.result .resultStage p{line-height:1.55}
+.result .resultNav{display:flex;align-items:center;gap:10px;margin:19px 0 0}
+.result .resultNav button{min-height:45px;border-radius:14px;font-size:13px;padding:11px 15px}
+.result #shareStatus{margin:5px 0}
+.result .v3EndLabel{margin:27px 0 10px;text-align:left;padding:0 5px;color:#806b90;font-size:11px;letter-spacing:.14em}
+.result .v3Secret{border-radius:23px;padding:27px 32px;box-shadow:0 11px 27px #77658512;background:linear-gradient(125deg,#fff8fd,#f7f1fa)}
+.result .v3Secret h3{font-size:clamp(28px,3.5vw,36px);max-width:640px;margin:10px auto}
+.result .v3Secret .v3Seal{width:48px;height:48px;font-size:25px;margin-bottom:12px}
+.result .v3Secret p{margin-bottom:12px}
+.result .v3Secret .vaultReveal{margin-top:16px}
+@media(max-width:620px){
+.result{padding-top:20px}
+.result .boardPanel{padding:17px 15px}
+.result .resultStage{grid-template-columns:95px minmax(0,1fr);gap:13px;padding:16px}
+.result .resultStage img{width:90px;height:90px}
+.result .resultNav{gap:8px}.result .resultNav button{flex:1 1 auto}
+.result .v3Secret{padding:23px 17px}
+.result .v3ChapterDivider{margin-top:19px}
+}
+
+/* V3 open-layout pass: wider canvas, free-floating modules */
+body:has(.result) .wrap{max-width:1600px;width:min(100%,1600px);padding-inline:clamp(20px,4vw,64px);box-sizing:border-box}
+.result{--result-width:1240px;width:100%;max-width:1240px;padding:30px 0 85px}
+.result .v3Hero{border:0;background:radial-gradient(ellipse at 85% 14%,#efe5fb 0%,transparent 50%),radial-gradient(ellipse at 10% 90%,#e6f2ff 0%,transparent 49%);box-shadow:none;border-radius:0;padding:clamp(26px,4vw,54px) clamp(8px,2vw,28px)}
+.result .resultsHeroGrid{grid-template-columns:minmax(0,1fr) minmax(185px,255px);gap:clamp(20px,5vw,80px)}
+.result .v3Hero h1{max-width:800px;font-size:clamp(43px,5.5vw,82px)}
+.result .v3ChapterDivider{margin:27px 0 12px;padding:0 8px}
+.result .boardPanel{border:0;border-top:1px solid #e2d6e9;border-bottom:1px solid #e2d6e9;border-radius:0;box-shadow:none;background:transparent;padding:24px 8px 30px}
+.result .boardPanel .scoreRow{border:0;border-bottom:1px solid #e6dce9;background:transparent;border-radius:0;box-shadow:none;padding:17px 14px;margin:0}
+.result .boardPanel .scoreRow:last-child{border-bottom:0}
+.result .boardPanel .scoreboardHead{padding:0 12px}
+.result .resultStage{border:0;border-radius:0;box-shadow:none;background:transparent;grid-template-columns:180px minmax(0,1fr);gap:clamp(22px,4vw,55px);padding:24px 12px}
+.result .resultStage img{width:175px;height:175px;object-fit:contain}
+.result .resultStage h3{font-size:clamp(28px,3vw,43px)}
+.result .resultStage p{font-size:clamp(15px,1.6vw,18px);max-width:780px}
+.result .v3Secret{max-width:none;border:0;border-top:1px solid #e2d6e9;border-radius:0;background:transparent;box-shadow:none;padding:38px clamp(10px,5vw,65px) 25px}
+.result .v3Secret h3{max-width:800px;font-size:clamp(35px,4.3vw,57px)}
+.result .v3Secret .vaultReveal{max-width:390px}
+.result .resultNav{justify-content:center;gap:12px;margin-top:12px}
+.result .v3EndLabel{margin:38px 0 0;text-align:center}
+@media(max-width:720px){
+ body:has(.result) .wrap{padding-inline:18px}
+ .result{padding-top:15px}
+ .result .resultsHeroGrid{grid-template-columns:1fr}
+ .result .v3Hero{padding:15px 2px 30px}
+ .result .v3Hero h1{font-size:clamp(39px,10vw,58px)}
+ .result .boardPanel{padding:15px 0 20px}
+ .result .resultStage{grid-template-columns:105px minmax(0,1fr);gap:14px;padding:18px 0}
+ .result .resultStage img{width:105px;height:105px}
+ .result .resultStage h3{font-size:clamp(23px,6vw,31px)}
+ .result .v3Secret{padding:30px 4px 20px}
+ .result .resultNav{justify-content:flex-start}
+}
+
+/* V3 type and score-meter refinement */
+.result .v3Hero h1,.result .v3Hero h1 em{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.055em;line-height:1.15;font-size:clamp(40px,5.1vw,73px);text-transform:none}
+.result .v3Hero h1{max-width:770px;margin:19px 0 27px}.result .v3Hero h1 em{font-style:normal;color:#302441;-webkit-text-fill-color:#302441}
+.result .v3Count{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.08em;font-weight:800;font-size:clamp(76px,8.5vw,112px)}
+.result .v3Count span{letter-spacing:-.02em;font-size:.31em;font-weight:700;color:#9569aa}
+.result .resultScoreCaption{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.08em;font-size:12px}
+.result .resultTagline{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.8;max-width:540px;font-size:15px;color:#685d71}
+.result .v3Progress{width:min(100%,345px);align-self:center;justify-self:end;padding:25px 26px 19px;border-left:1px solid #e4d5eb;font-family:'Plus Jakarta Sans',sans-serif}
+.result .v3ProgressTop,.result .v3ProgressBottom{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.result .v3ProgressTop span{font-size:13px;font-weight:700;color:#776782}.result .v3ProgressTop strong{font-size:clamp(33px,4vw,49px);letter-spacing:-.06em;color:#31263e}
+.result .v3ProgressTrack{height:16px;border-radius:30px;background:#eaddf0;margin:18px 0 12px;overflow:hidden}
+.result .v3ProgressTrack span{display:block;height:100%;border-radius:30px;background:linear-gradient(90deg,#c58ed0,#f06ea7);transition:width 1.1s ease}
+.result .v3ProgressBottom{font-size:11px;font-weight:700;color:#776b80}.result .v3ProgressNote{margin-top:29px;font-size:12px;color:#9b799e;font-style:italic}
+.result .resultMini span{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px}
+@media(max-width:720px){.result .v3Progress{width:100%;box-sizing:border-box;justify-self:stretch;border-left:0;border-top:1px solid #e4d5eb;padding:18px 0 4px}.result .v3Hero h1,.result .v3Hero h1 em{font-size:clamp(35px,9.5vw,53px)}}
+
+/* Version 4 · coherent free-flowing results typography and spacing */
+.result{max-width:1190px;padding-top:25px}
+.result .v3Hero{padding-block:38px 45px}
+.result .v3Hero h1,.result .v3Hero h1 em{font-size:clamp(38px,4.6vw,67px);font-weight:800;line-height:1.2;letter-spacing:-.045em}
+.result .resultGreeting{text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+.result .v3Count{font-size:clamp(76px,8vw,106px)}
+.result .v3Progress{border-left-color:#e2d4e8;padding-inline:27px}
+.result .v3ProgressNote{margin-top:18px}
+.result .v3ChapterDivider{margin:31px 0 14px;padding:0;letter-spacing:.12em;font-size:11px}
+.result .boardPanel{padding:14px 0 22px}
+.result .boardPanel .scoreboardHead{padding:0 3px}
+.result .boardPanel .scoreRow{padding:19px 8px}
+.result .resultStage{padding:20px 0;grid-template-columns:155px minmax(0,1fr);gap:30px}
+.result .resultStage img{height:148px;width:148px}
+.result .resultStage .eyebrow{letter-spacing:.11em}
+.result .resultStage h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(24px,2.8vw,37px)}
+.result .resultStage p{font-size:16px;max-width:750px}
+.result .resultNav{justify-content:flex-start;padding-top:12px;gap:12px}
+.result .resultNav button{border-radius:50px;padding-inline:20px}
+.result .v3EndLabel{margin:34px 0 3px}
+.result .v3Secret{padding-top:31px;border-top:1px solid #e4d8e6}
+.result .v3Secret h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.045em;line-height:1.2;font-size:clamp(28px,3.1vw,43px)}
+.result .v3Secret p{font-size:14px}
+.result .v3Secret .vaultReveal{border-radius:50px}
+@media(max-width:720px){
+.result .v3Hero{padding:22px 1px 27px}
+.result .v3Hero h1,.result .v3Hero h1 em{font-size:clamp(34px,9vw,51px)}
+.result .v3Progress{padding:19px 0 5px}
+.result .resultStage{grid-template-columns:95px minmax(0,1fr);gap:13px}
+.result .resultStage img{width:92px;height:92px}
+.result .resultStage h3{font-size:clamp(21px,5.4vw,29px)}
+.result .resultStage p{font-size:14px}
+.result .resultNav{justify-content:center}
+.result .v3ChapterDivider{margin:23px 0 11px}
+}
+
+/* V4 structural redesign: unified results canvas and shared columns */
+body:has(.result) .wrap{max-width:1480px;padding-inline:clamp(20px,4vw,66px)}
+.result{--v4-width:1130px;max-width:var(--v4-width);width:100%;margin:0 auto;padding:35px 0 92px;--v4-divider:#e6dce9}
+.result .v3Hero,.result .boardPanel,.result .resultStage,.result .v3Secret{width:100%;max-width:none;box-sizing:border-box}
+.result .v3Hero{padding:30px 0 35px;background:none;min-height:0;border:0;border-bottom:1px solid var(--v4-divider);box-shadow:none;border-radius:0}
+.result .v3Hero:after,.result .v3Star{display:none}
+.result .resultsHeroGrid{grid-template-columns:minmax(0,1fr) 345px;gap:55px;align-items:end}
+.result .v3Hero h1,.result .v3Hero h1 em{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(35px,4.6vw,61px);font-weight:800;line-height:1.14;letter-spacing:-.05em;color:#282238;-webkit-text-fill-color:#282238}
+.result .v3Hero h1{margin:18px 0 29px;max-width:720px}
+.result .v3Count{font-size:clamp(78px,8vw,103px)}
+.result .v3Hero .resultGreeting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#876b93;font-size:11px}
+.result .v3Progress{width:100%;border:0;border-left:1px solid var(--v4-divider);padding:24px 0 24px 28px}
+.result .v3ProgressTrack{height:14px}
+.result .v3ChapterDivider,.result .v3EndLabel{margin:30px 0 12px;padding:0;font-size:11px;letter-spacing:.1em;color:#786783}
+.result .v3ChapterDivider span{border:0;background:transparent;padding:0;width:auto;height:auto;font-weight:800}
+.result .boardPanel{padding:10px 0 28px;margin:0;border:0;border-bottom:1px solid var(--v4-divider);border-radius:0;background:transparent;box-shadow:none}
+.result .boardPanel .scoreboardHead{padding:0;margin:0 0 12px}
+.result .boardPanel .scoreboardHead h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(25px,3vw,34px);font-weight:800;letter-spacing:-.045em}
+.result .boardPanel .scoreRow{background:transparent;border:0;border-bottom:1px solid #e8e0eb;border-radius:0;box-shadow:none;margin:0;padding:18px 4px}
+.result .resultStage{padding:18px 0 32px;border:0;border-bottom:1px solid var(--v4-divider);background:none;box-shadow:none;border-radius:0;grid-template-columns:175px minmax(0,1fr);gap:45px}
+.result .resultStage img{width:170px;height:170px}
+.result .resultStage h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(25px,3vw,38px);font-weight:800;letter-spacing:-.035em}
+.result .resultStage p{font-size:16px;line-height:1.65}
+.result .resultNav{margin:22px 0 0;justify-content:flex-start}
+.result .v3EndLabel{margin-top:36px}
+.result .v3Secret{padding:30px 0 25px;border:0;border-top:1px solid var(--v4-divider);background:transparent;box-shadow:none;border-radius:0}
+.result .v3Secret h3{font-family:'Plus Jakarta Sans',sans-serif;max-width:700px;font-size:clamp(32px,4vw,48px)}
+.result .v3Secret .vaultReveal{max-width:390px}
+@media(max-width:760px){
+ .result{padding-top:17px}
+ .result .resultsHeroGrid{grid-template-columns:1fr;gap:3px}
+ .result .v3Hero{padding:20px 0 29px}
+ .result .v3Hero h1,.result .v3Hero h1 em{font-size:clamp(36px,9vw,51px)}
+ .result .v3Progress{border-left:0;border-top:1px solid var(--v4-divider);padding:18px 0 0}
+ .result .resultStage{grid-template-columns:100px minmax(0,1fr);gap:14px}
+ .result .resultStage img{width:96px;height:96px}
+ .result .resultStage h3{font-size:clamp(21px,5.5vw,29px)}
+ .result .v3Secret{padding:26px 0}
+}
+.editionSwitch{display:flex;gap:8px;margin-bottom:19px}.editionSwitch a{padding:10px 17px;border:1px solid #e4cde4;color:#563d65;text-decoration:none;font-weight:800;border-radius:40px;background:white}/* Front V4 — editorial but alive: deliberate contrast, interactive tension */
+body:has(.welcomeV4){background:#fffaf9}
+body:has(.welcomeV4) .wrap{max-width:1540px;width:min(100%,1540px);padding-inline:clamp(18px,4.2vw,68px)}
+.welcomeV4{display:grid;grid-template-columns:minmax(0,1.09fr) minmax(340px,.91fr);gap:clamp(35px,5vw,100px);align-items:center;min-height:min(760px,calc(100svh - 110px));padding:43px 0 60px}
+.v4Left{min-width:0}.v4Top{font-size:10px;letter-spacing:.115em;font-weight:800;color:#8b7683;display:flex;align-items:center;gap:11px;flex-wrap:wrap}.v4Dot{width:8px;height:8px;background:#d76992;border-radius:50%}.v4Edition{margin-left:auto;color:#aa7892}
+.v4Tiny{margin:60px 0 19px;font-size:15px;color:#965d7c;font-weight:800}.v4Headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(48px,5.6vw,83px);line-height:1.07;letter-spacing:-.068em;max-width:780px;font-weight:800;color:#2f2838;margin:0 0 25px}.v4Headline em{font-style:normal;color:#c75d89}.v4Question{color:#e6a1b6}.v4Description{font-size:clamp(15px,1.3vw,18px);line-height:1.78;color:#716473;max-width:605px;margin:0 0 36px}
+.v4Interactive{background:#fcf1f4;border:1px solid #eddae2;border-radius:20px;padding:23px 25px;max-width:665px}.v4InteractiveTop{display:flex;justify-content:space-between;color:#a5758e;letter-spacing:.12em;font-size:10px;font-weight:800}.v4Interactive p{font-weight:800;letter-spacing:-.025em;font-size:clamp(18px,2vw,22px);margin:16px 0}.v4Choices{display:flex;gap:11px;flex-wrap:wrap}.v4Choices button{font-size:12px;font-weight:800;background:#fff;border:1.5px solid #e3cbd9;border-radius:13px;padding:14px 17px;color:#60475e;transition:transform .16s,background .16s,border-color .16s}.v4Choices button:hover{transform:translateY(-2px);border-color:#bf729a}.v4Choices button.chosen{background:#342a3c;border-color:#342a3c;color:white}.v4Reply{font-size:12px;color:#a46185;min-height:24px;margin-top:15px;font-weight:750}.v4LaunchRow{display:flex;align-items:center;gap:22px;margin-top:26px;flex-wrap:wrap}.v4Launch{padding:18px 26px;border:0;background:#34283d;color:#fff;border-radius:99px;font-weight:800;font-size:16px;display:flex;align-items:center;gap:38px;box-shadow:0 10px 25px #6b517024;transition:transform .18s}.v4Launch:hover{transform:translateY(-3px)}.v4LaunchNote{color:#9a7b8a;font-size:12px;max-width:220px;line-height:1.6}
+.v4Right{position:relative;min-height:590px;display:flex;flex-direction:column;align-items:center;justify-content:center}.v4Halo{position:absolute;inset:65px 0 75px;background:radial-gradient(ellipse at center,#f7dbe7 0%,#f8eaf0 50%,transparent 73%);border-radius:50%}.v4SideNote{position:absolute;z-index:2;left:-3%;top:10%;transform:rotate(-7deg);font-size:10px;line-height:1.5;font-weight:800;letter-spacing:.07em;color:#9d6682}.v4SideNote span{color:#e3a8a1}.v4Image{z-index:1;position:relative;width:100%;max-width:490px;display:grid;place-items:center}.v4Image img{max-height:460px;max-width:100%;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 16px 18px #54304620)}.v4PhotoLabel{position:relative;z-index:2;align-self:stretch;margin:-38px auto 0;width:min(89%,480px);padding:20px 25px;background:#fff;border:1px solid #f0dce4;border-radius:17px;box-shadow:0 16px 38px #80637918;display:flex;flex-direction:column;gap:6px}.v4PhotoLabel span{font-size:10px;letter-spacing:.13em;color:#af7994;font-weight:800}.v4PhotoLabel strong{font-size:20px;letter-spacing:-.035em;color:#382d42}.v4PhotoLabel small{color:#977f8e}.v4Handwritten{position:absolute;right:2%;bottom:1%;color:#c26d92;font-weight:800;font-size:13px;transform:rotate(-10deg)}
+.v4LeaderboardWrap{border-top:1px solid #ebdce4;padding-top:33px;padding-bottom:60px}.v4BoardTitle{display:flex;align-items:baseline;gap:21px;flex-wrap:wrap}.v4BoardTitle span{color:#b06d8f;font-size:10px;font-weight:800;letter-spacing:.13em}.v4BoardTitle h2{font-size:clamp(25px,3vw,36px);letter-spacing:-.05em;margin:0}.v4BoardTitle p{margin-left:auto;color:#977d8e;font-size:13px}body:has(.welcomeV4) #welcomeLeaderboard{background:transparent;border:0;box-shadow:none;padding:23px 0 0}
+@media(max-width:830px){.welcomeV4{grid-template-columns:1fr;gap:8px;min-height:auto;padding-top:31px}.v4Tiny{margin-top:30px}.v4Headline{font-size:clamp(47px,9.4vw,74px)}.v4Right{min-height:380px}.v4Image img{max-height:300px}.v4PhotoLabel{margin-top:-23px}.v4BoardTitle p{margin:0;width:100%}}@media(max-width:480px){.v4Interactive{padding:20px 15px}.v4Choices button{width:100%}.v4SideNote{left:1%;top:5%}.v4Right{min-height:345px}}
+@media(prefers-reduced-motion:reduce){.v4Launch,.v4Choices button{transition:none}}
+
+.friendsWelcome .friendsName{margin-top:22px;max-width:665px}.friendsWelcome .friendsName label{font-size:14px;font-weight:800;display:block;margin-bottom:10px}.friendsWelcome .friendsName .nameInputWrap{max-width:480px}.friendsWelcome .friendsName small{display:block;margin-top:10px;color:#987e8f;font-size:11px}.friendsWelcome .v4Launch:disabled{opacity:.5;cursor:not-allowed;transform:none}
+</style></head><body><div class="wrap"><header class="top"><div class="logo"><span>friends <i>club.</i></span></div><div class="edition">FRIENDS EDITION</div></header><main id="app" aria-live="polite"></main><footer class="foot"><span>Made with a little too much thought. © Susan</span><span>20 questions · friendship and butterflies</span></footer></div>
+<script>
+'use strict';
+const STARTER=[
+  {
+    "id": 7,
+    "q": "If I wake up to 12 messages from the same person, how do I read them?",
+    "o": [
+      "Open the last message first",
+      "Scroll up and start from the beginning"
+    ],
+    "a": 1
+  },
+  {
+    "id": 9,
+    "q": "If my phone is at 1% during a really good conversation, what would I do?",
+    "o": [
+      "Find a charger and keep talking",
+      "Send a dramatic goodbye before it dies"
+    ],
+    "a": 1
+  },
+  {
+    "id": 15,
+    "q": "If I suddenly stop replying in the middle of a conversation, what's more likely?",
+    "o": [
+      "I got distracted and genuinely forgot",
+      "I saw the message but wanted to think before replying"
+    ],
+    "a": 0
+  },
+  {
+    "id": 19,
+    "q": "If someone offers me food I've never tried, what's my first reaction?",
+    "o": [
+      "Smell it before tasting",
+      "Take a bite without checking"
+    ],
+    "a": 0
+  },
+  {
+    "id": 31,
+    "q": "When I eat a cream-filled biscuit, what goes first?",
+    "o": [
+      "The cream",
+      "The biscuit"
+    ],
+    "a": 1
+  },
+  {
+    "id": 33,
+    "q": "If someone calls while I'm watching a video, what do I do first?",
+    "o": [
+      "Pause the video",
+      "Lower the volume"
+    ],
+    "a": 1
+  },
+  {
+    "id": 35,
+    "q": "If a packet won't tear open, what do I try next?",
+    "o": [
+      "Another corner",
+      "My teeth"
+    ],
+    "a": 0
+  },
+  {
+    "id": 36,
+    "q": "When I take a screenshot, what happens next?",
+    "o": [
+      "Crop it immediately",
+      "Leave it exactly as captured"
+    ],
+    "a": 1
+  },
+  {
+    "id": 37,
+    "q": "If I find money in an old pocket, what's my first thought?",
+    "o": [
+      "Check my other pockets",
+      "Try to remember when I put it there"
+    ],
+    "a": 1
+  },
+  {
+    "id": 38,
+    "q": "When I eat ice cream, what disappears first?",
+    "o": [
+      "The top",
+      "The edges"
+    ],
+    "a": 0
+  },
+  {
+    "id": 39,
+    "q": "When I listen to a voice message, what's my usual speed?",
+    "o": [
+      "Normal speed",
+      "Sped up"
+    ],
+    "a": 0
+  },
+  {
+    "id": 40,
+    "q": "If I wake up before my alarm, what do I do?",
+    "o": [
+      "Check how much time is left",
+      "Try sleeping again without checking"
+    ],
+    "a": 1
+  },
+  {
+    "id": 42,
+    "q": "If I spill a little water on my shirt, what do I do?",
+    "o": [
+      "Rub it with my hand",
+      "Leave it to dry"
+    ],
+    "a": 1
+  },
+  {
+    "id": 44,
+    "q": "When I receive a long voice note, what's my first move?",
+    "o": [
+      "Check its duration",
+      "Start listening immediately"
+    ],
+    "a": 0
+  },
+  {
+    "id": 45,
+    "q": "If my food is unexpectedly spicy, what do I do?",
+    "o": [
+      "Reach for water immediately",
+      "Keep eating and pretend it's fine"
+    ],
+    "a": 1
+  },
+  {
+    "id": 46,
+    "q": "When I put my phone down, how do I usually leave it?",
+    "o": [
+      "Screen facing upward",
+      "Screen facing downward"
+    ],
+    "a": 0
+  },
+  {
+    "id": 47,
+    "q": "If food drops onto the table, what do I do?",
+    "o": [
+      "Pick it up and eat it",
+      "Leave it aside"
+    ],
+    "a": 0
+  },
+  {
+    "id": 49,
+    "q": "If I accidentally open the wrong app, what happens?",
+    "o": [
+      "Close it immediately",
+      "Check it for a few seconds anyway"
+    ],
+    "a": 0
+  },
+  {
+    "id": 54,
+    "q": "If a photo comes out blurry, what's my next move?",
+    "o": [
+      "Immediately take another",
+      "Check whether the blurry one still looks good"
+    ],
+    "a": 0
+  },
+  {
+    "id": 57,
+    "q": "When something goes missing, where do I check first?",
+    "o": [
+      "Where I normally keep it",
+      "Where I last remember using it"
+    ],
+    "a": 0
+  }
+];
+const WRONG_REACTIONS=[{"minWrong":0,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-0.png","main":"dekhte hainnn… 👀","subtitle":"abhi sab shaant hai. dekhte hain aage kya hungama hota hai."},{"minWrong":1,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-01.png","main":"areyyy… kya kar diya re?! 😭","subtitle":"bestieee, ek baar phir dekh na… mujhe laga tha yeh toh pakka yaad hoga!"},{"minWrong":2,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-02.png","main":"oyeeee! aise kaiseee?!","subtitle":"nahi nahi, ruk… sach mein wahi option chuna tune? 😭"},{"minWrong":3,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-03.png","main":"bestieee! meri taraf dekh zara!","subtitle":"main yahan phone leke baitha hoon aur tu aise dara rahi hai mujhe?!"},{"minWrong":4,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-04.png","main":"areyyy bas ek second! 😭","subtitle":"abhi toh pichhle wale se sambhla bhi nahi tha reeee!"},{"minWrong":5,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-05.png","main":"haan haan… theek hai. 😭","subtitle":"main kuch nahi bol raha. tu bas meri shakal dekh le ek baar."},{"minWrong":6,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-06.png","main":"bestieee… dil dukha diya re!","subtitle":"itne pyaar se sawaal banaya tha… aur tune yeh kar diyaaaa!"},{"minWrong":7,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-07.png","main":"oyeeee pagliiii, rukkk!","subtitle":"main hassun ya ro du? ek baar bata toh de reeee!"},{"minWrong":8,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-08.png","main":"areyyy meri maa! 😭","subtitle":"tu jawab de rahi hai ya mujhe daraane ka plan bana ke aayi hai?!"},{"minWrong":9,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-09.png","main":"bestieee… nahi yaarrr!","subtitle":"ab toh phone neeche rakh ke tujhe do minute ghoorna padega. 😭"},{"minWrong":10,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-10.png","main":"bas reeee, paani pilaa!","subtitle":"meri shakal dekh! itna drama toh maine khud bhi nahi socha tha 😭"},{"minWrong":11,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-new-11.png","main":"ab toh sach mein dukh ho raha hai.","subtitle":"itna bhi torture kisi ko nahi karte re."},{"minWrong":12,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-1.png","main":"areyyyyy! phir se?!","subtitle":"main har baar sochta hoon ab theek hoga… aur phir yeh ho jaata hai."},{"minWrong":13,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-2.png","main":"nahiiiiiii! main yeh dekh hi kyun raha hoon 😭","subtitle":"meri soul dheere dheere screen se bahar nikal rahi hai."},{"minWrong":14,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-3.png","main":"hainnnn?! yeh kaunsi timeline chal rahi hai?","subtitle":"is point pe main bas universe se sawal pooch raha hoon."},{"minWrong":15,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-4.png","main":"oyeeeeee! main officially pareshaan hoon.","subtitle":"ab meri shakal dekho — full confusion, full dukh."},{"minWrong":16,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-5.png","main":"arey re re re reee…","subtitle":"ab main bas aankhon se hi complaint file kar raha hoon."},{"minWrong":17,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-6.png","main":"yeh toh seedha meri izzat le gaya 😭","subtitle":"main khada hoon, par andar se gir chuka hoon."},{"minWrong":18,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-7.png","main":"nahi yaar… ab toh scene bigad gaya.","subtitle":"mujhe lag raha hai ab main recovery mode se bhi bahar hoon."},{"minWrong":19,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-8.png","main":"theek hai. main maanta hoon. main hil gaya.","subtitle":"ab jo bacha hai woh sirf drama aur dard hai."},{"minWrong":20,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/wrong-9.png","main":"bas. aaj ke liye main khatam. 😭","subtitle":"main officially emotional ruins mein convert ho chuka hoon."}];
+const CORRECT_REACTIONS=[{"minCorrect":1,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-01.png","main":"HEHEHEHEHE! 💗","subtitle":"bestieiii! dekh dekh, tere jawab pe phone ke peeche meri hasi hi nahi ruk rahi reeee!"},{"minCorrect":2,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-8.png","main":"OYYYYY HOYYYYY! 😭","subtitle":"areeeee! pakad liya tujhe! ab aise seedha seedha bach ke kahaan jaayegi reeee?!"},{"minCorrect":3,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-2.png","main":"AYOOOOOO! IDHAR AA REEEE! 😭","subtitle":"arey ruk naaaa! itni khushi ho rahi hai, ek baar tujhe pyaar se pakadne de!"},{"minCorrect":4,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-02.png","main":"BESTIEEEEE! ✨","subtitle":"areeeee meri aankhon ke taare dekh! ekdum chamakne lage reeee! kya kar diya tuneyyyy?!"},{"minCorrect":5,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-5.png","main":"AYEEEE MERI PYAARI bestieIII! 🥹","subtitle":"idhar aa, bilkul hilna mat! tere sar pe ek pyaara sa pat pat pat karna hai reeee!"},{"minCorrect":6,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-04.png","main":"bestieIIIIII! 100 NUMBERRRR! 😭","subtitle":"dekh naaaa! kakashi sensei ne khud sau wala board utha liya! arreeee waah reeee!"},{"minCorrect":7,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-3.png","main":"HAINNNNN?! EK MINUTEEEE!","subtitle":"areyyyy! yeh sach mein sahi nikla?! mujhe toh apne hi sawaal pe shaq ho raha hai reeee!"},{"minCorrect":8,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-06.png","main":"BESTIEEEEE! MUJHE MAT DEKHHH! 😭","subtitle":"arey meri shakal laal ho gayi re! rukkk, pehle in haathon ke peeche chhupne deeee!"},{"minCorrect":9,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-9.png","main":"OYEEEE PAGLIIII! 😭","subtitle":"haan haan! dekh liya teri shaitaani! itna chhed mat, main hans hans ke haar jaaunga reeee!"},{"minCorrect":10,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-08.png","main":"BESTIEEEEE! YEH DEKH REEEE! 💗","subtitle":"dono haathon se itna bada dil banaya hai tere liye! dekh toh sahi, tedha toh nahi hua naaaa?!"},{"minCorrect":11,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-07.png","main":"AAAAAAAA bestieIII! 😭","subtitle":"areyyyy, meri aankhein phat gayi reeee! main khush hoon ya shock mein, samajh hi nahi aa rahaaaa!"},{"minCorrect":12,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-7.png","main":"BACHAAAAAO! MERI HAALAT DEKH! 😭","subtitle":"areyyyy ruk zaraa! main toh ghabra ke idhar-udhar dekh raha hoon! kya karoon abbb?!"},{"minCorrect":13,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-12.png","main":"BESTIEEEEE! WHEEEEEEEE! 💗","subtitle":"areyyyy dekh, khushi mein haath faila ke bhaag raha hoon! pair zameen pe tik hi nahi rahe reeee!"},{"minCorrect":14,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-6.png","main":"AREYYYY MERI MAAAA! 😭","subtitle":"bestieee! mera dimaag toh ghoom gaya reeee! itna sab ek saath kaise ho raha hai?!"},{"minCorrect":15,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-05.png","main":"SOOOOO CUTEEEE! AAAAAAA! 💗","subtitle":"bas kar re pagliiii! itni pyaari khushi de di ki main yahin pighal ke gir gaya reeee!"},{"minCorrect":16,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-13.png","main":"bestieIIIIII! DIL HI DILLLL! 💗","subtitle":"areyyyy dekh naaaa! mere peeche poora hearts ka pahaad ban gaya! ab inka kya karoooo?!"},{"minCorrect":17,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-10.png","main":"HAAYEEEEEEEE! MERA DILLLL! 💘","subtitle":"areyyy seene pe haath rakhna pad gaya reeee! dil itna zor se dhadak raha hai, sambhaal mujheee!"},{"minCorrect":18,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-03.png","main":"BESTIEEEEE!!! 😭","subtitle":"aaaaaaa meri kamarrrrr!! tujhe ek baar bhi mere pe taras nahi aaya kya reeeee?!"},{"minCorrect":19,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-09.png","main":"BESTIEEEEE… MAIN GAYAAAA! ⚰️","subtitle":"areyyy dekho! pehle gira, phir khud hi coffin mein ghus gaya! dhakkan band mat karna reeee!"},{"minCorrect":20,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/correct-new-11.png","main":"BESTIEEEEE! 😭💗","subtitle":"aaaaaa dekh na, main seedha munh ke bal gir padaaa! ab aa ke utha bhi de re pagliiii!"}];
+const EXTRA_REACTIONS=[{"id":1,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-1.png","main":"Oye bestie, itna confidence?","subtitle":"Ab dekhte hain kitna jaanti hai mujhe."},{"id":2,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-2.png","main":"AYOOOO! SHE ACTUALLY DID IT!","subtitle":"I wasn't prepared for this level of intelligence."},{"id":3,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-3.png","main":"Ek minute… yeh exam tera hai ya mera?","subtitle":"I'm starting to question my own questions."},{"id":4,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-4.png","main":"10 down, 10 to go. Chai piyegi?","subtitle":"Take a sip. The real trouble starts now."},{"id":5,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-5.png","main":"Areee, meri intelligent bestie!","subtitle":"Chal, thoda encouragement toh banta hai."},{"id":6,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-6.png","main":"ITNA DIMAAG KAHAN SE LAATI HAI?!","subtitle":"Thoda mujhe bhi de de yaar."},{"id":7,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-7.png","main":"bestieNN, NO ESCAPING!","subtitle":"We're finishing this exam together."},{"id":8,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-8.png","main":"Accha, maanna padega. Tu smart toh hai.","subtitle":"But don't let that go to your head."},{"id":9,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-9.png","main":"OYE! Mere hi exam mein mujhe attitude?","subtitle":"Your confidence is under investigation."},{"id":10,"image":"https://sushan5140.github.io/A-test-for-Maalkin/assets/reactions/scene-10.png","main":"Chal, tu jeet gayi, meri bestie.","subtitle":"But remember, you're still stuck with your annoying friend."}];
+function picture(src,alt){return '<img src="'+src+'" alt="'+esc(alt)+'" loading="lazy" class="reactionImage" onerror="this.style.display=\'none\'">'}
+function sceneCard(i){const e=EXTRA_REACTIONS[i];return '<div class="sceneCard">'+picture(e.image,e.main)+'<div class="sceneCopy"><strong>'+esc(e.main)+'</strong><small>'+esc(e.subtitle)+'</small></div></div>'}
+const CHAPTERS=[{name:"THE WARM-UP",label:"Okay, easy ones first.",desc:"Let's see whether you're paying attention.",tone:"peach"},{name:"THE LITTLE THINGS",label:"You notice the details, right?",desc:"This is getting interesting.",tone:"blue"},{name:"YOU SHOULD KNOW THIS",label:"No pressure. Actually, some pressure.",desc:"I'm watching you, bestie.",tone:"yellow"},{name:"THE MEMORY DRAWER",label:"The part that feels like us.",desc:"Every small thing adds up.",tone:"lilac"}];
+const app=document.getElementById('app');const clone=x=>JSON.parse(JSON.stringify(x));const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+let questions=clone(STARTER),idx=0,score=0,choice=-1,locked=false,editorQuestions=[],results=[];
+// The published exam always uses the approved questions, not stale local browser drafts.
+function valid(q){return typeof q.q==='string'&&q.q.trim()&&Array.isArray(q.o)&&q.o.length===2&&q.o.every(s=>typeof s==='string'&&s.trim())&&Number.isInteger(q.a)&&q.a>=0&&q.a<2}
+function mascot(mood='idle',tag='tiny but dramatic'){const mouths={idle:'M121 141 Q140 156 159 141',happy:'M119 137 Q140 168 161 137',thinking:'M124 144 Q140 139 155 144',wrong:'M123 157 Q140 138 157 157'};const eyes=mood==='wrong'?'<path d="M99 118l16 7m48-7l-16 7"/>':'<path d="M102 119v4m76-4v4"/>';return '<div class="scene"><span class="spark one">✳</span><span class="spark two">✦</span><svg class="mascot" data-mood="'+mood+'" viewBox="0 0 280 300" role="img" aria-label="Expressive doodle companion"><path class="body" d="M83 72Q56 33 39 44Q13 64 65 112Q47 147 49 205Q51 262 136 267Q231 268 236 201Q239 145 217 110Q270 55 246 42Q230 29 194 71Q139 48 83 72Z"/><path class="bow" d="M198 62Q236 39 228 83L205 103Q202 132 188 122Q165 118 180 96Q170 74 198 62Z"/><circle class="blush" cx="87" cy="146" r="13"/><circle class="blush" cx="195" cy="146" r="13"/><g class="feature">'+eyes+'<path d="'+mouths[mood]+'"/><path d="M138 132v2"/></g><path class="arm" d="M58 180L25 168m209 9 30-19"/></svg><span class="sceneLabel">'+esc(tag)+'</span></div>'}
+
+const SCORE_API="https://liyhjtyadbeozwjtrqqr.supabase.co/rest/v1/maalkin_scores";
+const SCORE_KEY="sb_publishable_ZFK_hBjdVwvCAbupYSZGog_oH0TEAfe";
+let playerName='';
+const scoreHeaders={'apikey':SCORE_KEY,'Content-Type':'application/json'};
+async function loadScoreboard(targetId){
+ const target=document.getElementById(targetId);if(!target)return;
+ try{
+  const response=await fetch(SCORE_API+'?select=player_name,score,created_at&order=score.desc,created_at.asc&limit=100',{headers:scoreHeaders});
+  if(!response.ok)throw Error('leaderboard unavailable');
+  const rows=await response.json();if(!document.getElementById(targetId))return;
+  const top=rows.slice(0,10);
+  target.innerHTML='<div class="scoreboardHead"><h3>🏆 Scoreboard</h3><span>'+rows.length+' plays shown</span></div>'+
+   (top.length?top.map((r,i)=>'<div class="scoreRow"><span class="scoreMedal">'+(['🥇','🥈','🥉'][i]||String(i+1))+'</span><div class="scoreName">'+esc(r.player_name)+'</div><div class="scoreBar"><span style="width:'+(100*r.score/20)+'%"></span></div><strong>'+r.score+'<small>/20</small></strong></div>').join(''):'<p class="minor">Be the first name on the board ♡</p>');
+ }catch(e){if(document.getElementById(targetId))target.innerHTML='<p class="minor">Scoreboard is temporarily unavailable. You can still play.</p>'}
+}
+async function submitScore(){
+ const msg=document.getElementById('scoreSaveStatus');
+ if(!playerName){if(msg)msg.textContent='Name missing; score was not submitted.';return;}
+ try{
+  const response=await fetch(SCORE_API,{method:'POST',headers:{...scoreHeaders,'Prefer':'return=minimal'},body:JSON.stringify({player_name:playerName,score,total:20})});
+  if(!response.ok)throw Error('score save unsuccessful');
+  if(msg)msg.textContent='Your score is on the board! ♡';
+  await loadScoreboard('resultLeaderboard');
+ }catch(e){if(msg)msg.textContent='Score could not be saved. Please check your connection.'}
+}
+
+
+function renderWelcome(){
+ app.innerHTML='<section class="hero enter welcomeV4 friendsWelcome"><div class="v4Left"><div class="v4Top"><span class="v4Dot"></span> A VERY UNOFFICIAL FRIENDSHIP TEST <span class="v4Edition">FRIENDS EDITION</span></div><div class="v4Tiny">Oye bestie, one tiny question before the twenty big ones.</div><h1 class="v4Headline">You know me <em>that</em> well<span class="v4Question">?</span></h1><p class="v4Description">20 little questions. 2 choices. And enough chaos to find out whether you have actually been paying attention. 👀</p><div class="v4Interactive"><div class="v4InteractiveTop"><span>FIRST, A CONFIDENCE CHECK</span><span>01 / 01</span></div><p>How confident are you?</p><div class="v4Choices"><button type="button" data-confidence="brave">Easy. I know you too well. 😌</button><button type="button" data-confidence="careful">Umm… should I be worried? 👀</button></div><div class="v4Reply" id="v4Reply" aria-live="polite">Pick one. I promise not to judge. (I might.)</div></div><div class="friendsName"><label for="playerName">And what should we call you?</label><div class="nameInputWrap"><input id="playerName" class="field" autocomplete="nickname" maxlength="15" placeholder="your name…" aria-label="Your name" value="'+esc(playerName)+'"><span id="nameLen">'+playerName.length+'/15</span></div><small>Your name and score appear on the shared scoreboard.</small></div><div class="v4LaunchRow"><button class="v4Launch" id="start" disabled>Alright, test me <span>↗</span></button><span class="v4LaunchNote">No backing out now. Just saying.</span></div></div><div class="v4Right"><div class="v4Halo"></div><div class="v4SideNote">FRIENDSHIP LEVEL <span>✳</span><br>pending investigation</div><div class="v4Image">'+picture(EXTRA_REACTIONS[0].image,EXTRA_REACTIONS[0].main)+'</div><div class="v4PhotoLabel"><span>FRIENDS CLUB</span><strong>Let the plot twist begin.</strong><small>The scoreboard will remember everything.</small></div><div class="v4Handwritten">good luck bestie ↗</div></div></section><section class="v4LeaderboardWrap"><div class="v4BoardTitle"><span>THE RECEIPTS</span><h2>The little leaderboard.</h2><p>Your score deserves its moment here.</p></div><section class="boardPanel" id="welcomeLeaderboard"><p class="minor">Loading scores…</p></section></section>';
+ const input=document.getElementById('playerName'),button=document.getElementById('start');
+ function update(){button.disabled=!input.value.trim();document.getElementById('nameLen').textContent=input.value.length+'/15';}
+ input.addEventListener('input',update);input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!button.disabled)button.click()});update();
+ document.querySelectorAll('.v4Choices button').forEach(choiceButton=>choiceButton.onclick=()=>{document.querySelectorAll('.v4Choices button').forEach(x=>x.classList.remove('chosen'));choiceButton.classList.add('chosen');document.getElementById('v4Reply').textContent=choiceButton.dataset.confidence==='brave'?'OHH REALLY? 😭 Keeping receipts on that confidence.':'Already nervous? 😭 And we have not even started yet.';});
+ button.onclick=()=>{const name=input.value.trim();if(!name)return;playerName=name;idx=0;score=0;results=[];renderQuestion()};
+ loadScoreboard('welcomeLeaderboard');
+}
+function chapterFor(i){return Math.min(3,Math.floor(i/(questions.length/4)))}
+function interlude(ch){if(ch!==2){renderQuestion();return;}const e=EXTRA_REACTIONS[3];app.innerHTML='<section class="midBreak enter"><div class="eyebrow">HALFWAY THERE · 10 / 20</div>'+picture(e.image,e.main)+'<h2>'+esc(e.main)+'</h2><p>'+esc(e.subtitle)+'</p><button class="primary" id="go">Continue the chaos →</button></section>';document.getElementById('go').onclick=renderQuestion}
+function renderQuestion(){locked=false;choice=-1;const q=questions[idx],ch=chapterFor(idx);
+app.innerHTML='<section class="quiz enter" id="questionScreen"><div class="meter"><span>QUESTION '+String(idx+1).padStart(2,'0')+'</span><div class="track"><div style="width:'+(100*idx/questions.length)+'%"></div></div><span>'+String(idx+1).padStart(2,'0')+' / '+String(questions.length).padStart(2,'0')+'</span></div><div class="chapter" style="margin-top:41px"><span class="chapterName">'+esc(CHAPTERS[ch].name)+'</span><span class="minor" style="margin:0">two choices. one instinct.</span></div><h2 class="qhead">'+esc(q.q)+'</h2><div class="qarea"><div><div class="answers" role="group" aria-label="Choose one answer">'+q.o.map((v,i)=>'<button class="answer answer--interactive" aria-pressed="false" data-i="'+i+'"><span class="key">'+String.fromCharCode(65+i)+'</span><span>'+esc(v)+'</span><span class="answerMark" aria-hidden="true">↗</span></button>').join('')+'</div><div class="decisionRow"><div class="decisionNote" id="decisionNote" aria-live="polite">Take your time. No clues from me.</div><button class="primary" id="lock" disabled>Lock it in <span>→</span></button></div></div><aside class="sidekick">'+picture(EXTRA_REACTIONS[2].image,'The examiner')+'<p>no hints, bestie.</p></aside></div></section>';
+const choices=[...document.querySelectorAll('.answer')],button=document.getElementById('lock'),note=document.getElementById('decisionNote');
+choices.forEach(b=>b.onclick=()=>{if(locked)return;choice=Number(b.dataset.i);choices.forEach(x=>{const active=x===b;x.classList.toggle('selected',active);x.setAttribute('aria-pressed',String(active))});note.textContent=['Option A? Interesting choice.','Option B? Bold decision.'][choice];button.disabled=false;button.classList.add('ready');const mascotEl=document.querySelector('.sidekick .mascot');if(mascotEl){mascotEl.dataset.mood='thinking';mascotEl.classList.remove('mascotPeek');void mascotEl.offsetWidth;mascotEl.classList.add('mascotPeek')}});
+button.onclick=()=>{if(choice<0||locked)return;locked=true;const correct=choice===q.a;results.push({question:q.q,selected:choice,correct:q.a,options:q.o});if(correct)score++;choices.forEach(x=>x.disabled=true);button.disabled=true;const wrongCount=results.length-score;const reaction=correct?CORRECT_REACTIONS[Math.min(19,score-1)]:WRONG_REACTIONS[Math.min(20,wrongCount)];const feedback=document.createElement('section');feedback.className='answerFeedback '+(correct?'feedbackCorrect':'feedbackWrong');feedback.setAttribute('aria-live','polite');feedback.innerHTML=picture(reaction.image,reaction.main)+'<div><span class="feedbackTag">'+(correct?'✓ CORRECT ANSWER':'× not quite…')+'</span><strong>'+esc(reaction.main)+'</strong><small>'+esc(reaction.subtitle)+'</small><button class="primary" id="continueQuiz">'+(idx===questions.length-1?'See my results':'Next question →')+'</button></div>';document.querySelector('.qarea').insertAdjacentElement('afterend',feedback);note.textContent=correct?'You got it!':'Wrong this time. The answer review is waiting at the end.';document.getElementById('continueQuiz').onclick=()=>{idx++;if(idx>=questions.length)renderResult();else if(idx===10)interlude(2);else renderQuestion();window.scrollTo({top:0,behavior:'instant'})};feedback.scrollIntoView({block:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}
+}
+function burst(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<30;i++){let el=document.createElement('span');el.className='confetti';el.style.left=(Math.random()*100)+'vw';el.style.background=['#d97b63','#b3d6d7','#f3d58b','#ccc2df'][i%4];el.style.animationDelay=(Math.random()*.6)+'s';document.body.append(el);setTimeout(()=>el.remove(),4000)}}
+function renderResult(){
+ const mistakes=questions.length-score,rate=score/questions.length,percent=Math.round(rate*100);
+ const heading=score===20?'Wait, you got them all?!':rate>=.75?'Okayyy, you know me!':rate>=.5?'Oyeee, not bad at all!':'Round two? You in?';
+ const reaction=score===20?CORRECT_REACTIONS[19]:score>=12?CORRECT_REACTIONS[Math.min(score-1,19)]:WRONG_REACTIONS[Math.min(20,mistakes)];
+
+ app.innerHTML='<section class="result enter"><div class="resultsHero v3Hero"><div class="v3Star v3StarOne">✳</div><div class="v3Star v3StarTwo">♡</div><div class="resultGreeting">the very unofficial verdict · '+esc(playerName||'our player')+'</div><div class="resultsHeroGrid"><div><h1><em>'+heading+'</em></h1><span class="resultScoreCaption">your final score</span><div class="resultCount v3Count">'+score+'<span> / '+questions.length+'</span></div><p class="resultTagline">Not bad, right? Come see where you landed — and what made me lose my mind.</p><div class="resultMini"><span>✓ '+score+' correct</span><span>♡ '+mistakes+' missed</span><span>✦ '+percent+'% match</span></div><div class="resultRibbon v3Ribbon"><span class="resultRibbonIcon">💌</span> twenty little questions, one very special person</div></div><div class="v3Progress"><div class="v3ProgressTop"><span>how well you know me ♡</span><strong>'+percent+'%</strong></div><div class="v3ProgressTrack" role="progressbar" aria-label="Correct answers" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+percent+'"><span style="width:'+percent+'%"></span></div><div class="v3ProgressBottom"><span>'+score+' little things remembered</span><span>'+mistakes+' missed</span></div><div class="v3ProgressNote">not a grade. just our little game.</div></div></div></div><div class="v3ChapterDivider"><span>01</span> THE LITTLE LEADERBOARD</div><p id="scoreSaveStatus" role="status">Saving your score…</p><section class="boardPanel" id="resultLeaderboard"><p class="minor">Loading the scoreboard…</p></section><div class="v3ChapterDivider"><span>02</span> THAT REACTION THOUGH</div><div class="resultStage">'+picture(reaction.image,reaction.main)+'<div><div class="eyebrow">my reaction right now</div><h3>'+esc(reaction.main)+'</h3><p>'+esc(reaction.subtitle)+'</p></div></div><div class="resultNav"><button class="primary" id="replay">↻ Play again</button><button class="secondary" id="share">↗ Share my score</button><button class="secondary" id="scrollLeaderboard">🏆 View rankings</button></div><p id="shareStatus" class="toast" aria-live="polite"></p><div class="v3EndLabel">03 · THE ANSWER VAULT</div><section class="v3Secret"><div class="v3Seal">✉</div><div class="v3SecretText"><span class="v3Kicker">SEALED UNTIL YOU ARE READY</span><h3>Wait… wanna know what you got wrong?</h3><p>Twenty little secrets. Your answers are tucked away here — open only when you want the full reveal.</p></div><button class="vaultReveal" id="revealAnswers" aria-expanded="false" aria-controls="answerVault">Open the answer vault <span>↗</span></button><div id="answerVault" hidden><div class="reviewActions" role="group" aria-label="Filter answer review"><button class="reviewFilter active" data-filter="wrong">Missed ('+mistakes+')</button><button class="reviewFilter" data-filter="all">All 20</button><button class="reviewFilter" data-filter="correct">Got right ('+score+')</button></div><div id="reviewEntries"></div><p class="minor" id="reviewEmpty" hidden>No answers here ♡</p></div></section></section>';
+ function filterReview(filter){let shown=0;document.querySelectorAll('.reviewCard').forEach(card=>{let ok=filter==='all'||card.dataset.outcome===filter;card.hidden=!ok;if(ok)shown++});document.getElementById('reviewEmpty').hidden=shown>0;document.querySelectorAll('.reviewFilter').forEach(b=>{b.classList.toggle('active',b.dataset.filter===filter);b.setAttribute('aria-pressed',String(b.dataset.filter===filter))})}
+ const revealBtn=document.getElementById('revealAnswers');
+ revealBtn.onclick=()=>{const vault=document.getElementById('answerVault'),opened=vault.hidden;vault.hidden=!opened;revealBtn.setAttribute('aria-expanded',String(opened));revealBtn.innerHTML=opened?'Close the answer vault <span>↑</span>':'Open the answer vault <span>↗</span>';if(opened){if(!vault.dataset.built){document.getElementById('reviewEntries').innerHTML=results.map((r,i)=>'<article class="reviewCard '+(r.selected===r.correct?'isCorrect':'isWrong')+'" data-outcome="'+(r.selected===r.correct?'correct':'wrong')+'"><div class="reviewStatus">'+(r.selected===r.correct?'✓ GOT IT RIGHT':'× MISSED THIS ONE')+' · Q'+String(i+1).padStart(2,'0')+'</div><h4>'+esc(r.question)+'</h4><p>Your pick: <strong>'+esc(r.options[r.selected])+'</strong></p>'+(r.selected===r.correct?'':'<p>Actual answer: <strong>'+esc(r.options[r.correct])+'</strong></p>')+'</article>').join('');vault.dataset.built='yes'}filterReview('wrong');vault.scrollIntoView({block:'nearest',behavior:'smooth'})}};
+ document.querySelectorAll('.reviewFilter').forEach(b=>b.onclick=()=>filterReview(b.dataset.filter));
+ document.getElementById('scrollLeaderboard').onclick=()=>document.getElementById('resultLeaderboard').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ document.getElementById('replay').onclick=renderWelcome;
+ document.getElementById('share').onclick=async()=>{const message='I scored '+score+'/'+questions.length+' on the Friends Quiz! '+location.href;try{if(navigator.share)await navigator.share({title:'Friends Quiz',text:message,url:location.href});else if(navigator.clipboard){await navigator.clipboard.writeText(message);document.getElementById('shareStatus').textContent='Score copied!'}else document.getElementById('shareStatus').textContent=message}catch(e){}};
+ burst();submitScore();
+}
+function renderEditor(){editorQuestions=clone(questions);app.innerHTML='<section class="editor enter"><div class="eyebrow">Creator studio / only local on this device</div><h1 class="serif" style="font-size:clamp(52px,8vw,83px);line-height:1;margin:20px 0">Make it<br><span style="color:var(--orange)">personal.</span></h1><p class="lead">These are starter questions, not claims about your private memories. Replace them with what only your friends know. Changes here are saved on this device, <strong>not automatically published</strong> to GitHub Pages.</p><div id="fields"></div><div class="editorTools"><button class="secondary" id="add">+ Add a question</button><button class="primary" id="save">Save on this device</button><button class="secondary" id="export">Export questions JSON ↓</button><button class="secondary" id="reset">Reset to demo</button></div><p class="toast" id="editorStatus" role="status"></p><p class="minor">To publish customized questions for the Friends edition, update the STARTER array in index.html and push to main. Keep the answers private until she plays.</p></section>';drawEditor();document.getElementById('add').onclick=()=>{readEditor();editorQuestions.push({q:'Your new question?',o:['Option A','Option B'],a:0});drawEditor()};document.getElementById('save').onclick=()=>{readEditor();if(!editorQuestions.every(valid)){document.getElementById('editorStatus').textContent='Please fill every question and both options.';return}questions=clone(editorQuestions);try{localStorage.setItem('maalkinQuestionsV2',JSON.stringify(questions));document.getElementById('editorStatus').textContent='Saved on this device. Not published for Friends yet.'}catch(e){document.getElementById('editorStatus').textContent='Browser storage unavailable — use Export JSON.'}};document.getElementById('export').onclick=()=>{readEditor();if(!editorQuestions.every(valid)){document.getElementById('editorStatus').textContent='Complete all questions before exporting.';return}const blob=new Blob([JSON.stringify(editorQuestions,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='maalkin-questions.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)};document.getElementById('reset').onclick=()=>{if(!confirm('Replace your local draft with starter questions?'))return;questions=clone(STARTER);localStorage.removeItem('maalkinQuestionsV2');renderEditor()}}
+function drawEditor(){document.getElementById('fields').innerHTML=editorQuestions.map((q,j)=>'<div class="editCard" data-j="'+j+'"><div class="eyebrow">Question '+(j+1)+'</div><label>THE QUESTION</label><input class="field editq" value="'+esc(q.q)+'">'+q.o.map((o,k)=>'<label>OPTION '+String.fromCharCode(65+k)+'</label><input class="field edito" value="'+esc(o)+'">').join('')+'<label>CORRECT ANSWER</label><select class="field edita">'+[0,1].map(k=>'<option value="'+k+'" '+(q.a===k?'selected':'')+'>'+String.fromCharCode(65+k)+'</option>').join('')+'</select><button class="link remove" data-j="'+j+'" style="margin-top:12px">Remove question</button></div>').join('');document.querySelectorAll('.remove').forEach(b=>b.onclick=()=>{readEditor();if(editorQuestions.length<=1)return;editorQuestions.splice(Number(b.dataset.j),1);drawEditor()})}
+function readEditor(){editorQuestions=[...document.querySelectorAll('.editCard')].map(e=>({q:e.querySelector('.editq').value,o:[...e.querySelectorAll('.edito')].map(x=>x.value),a:Number(e.querySelector('.edita').value)}))}
+// Preview-only mode: isolated sample results, no score submission.
+if(new URLSearchParams(location.search).get('preview')==='results'){
+ playerName='Preview';
+ const demoWrong=new Set([2,4,6,9,11,14,16,18,20]);
+ results=questions.map((q,i)=>({question:q.q,selected:demoWrong.has(i+1)?1-q.a:q.a,correct:q.a,options:q.o}));
+ score=results.filter(r=>r.selected===r.correct).length;
+ // Disable backend write for this preview (the real quiz keeps its normal behavior).
+ const submitScoreReal=submitScore;
+ submitScore=async()=>{const label=document.getElementById('scoreSaveStatus');if(label)label.textContent='Preview mode · sample score, nothing saved';await loadScoreboard('resultLeaderboard')};
+ renderResult();
+ const replay=document.getElementById('replay');if(replay)replay.textContent='↻ Exit preview';
+ if(replay)replay.onclick=()=>location.assign(location.pathname);
+}else renderWelcome();
+</script></body></html>
